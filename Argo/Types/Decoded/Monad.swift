@@ -28,7 +28,7 @@ public func >>- <T, U>(x: Decoded<T>, f: @noescape (T) -> Decoded<U>) -> Decoded
 
   - returns: A value of type `Decoded<U>`
 */
-public func -<< <T, U>( f: @noescape (T) -> Decoded<U>, x: Decoded<T>) -> Decoded<U> {
+public func -<< <T, U>(f: @noescape (T) -> Decoded<U>, x: Decoded<T>) -> Decoded<U> {
   return x.flatMap(f)
 }
 

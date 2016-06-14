@@ -1,7 +1,6 @@
 import Foundation
 
 func JSONFromFile(file: String) -> AnyObject? {
-  Bundle().pathForResource("user_without_key", ofType: "json")
   return Bundle(for: JSONFileReader.self).pathForResource(file, ofType: "json")
     .flatMap { URL(string: "file://\($0)") }
     .flatMap { try? Data(contentsOf: $0) }

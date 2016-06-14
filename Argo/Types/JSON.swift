@@ -45,7 +45,6 @@ public extension JSON {
 }
 
 extension JSON: Decodable {
-  public typealias DecodedType = JSON
   /**
     Decode `JSON` into `Decoded<JSON>`.
 

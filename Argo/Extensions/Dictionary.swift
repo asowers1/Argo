@@ -20,6 +20,6 @@ extension Dictionary {
   }
 }
 
-func <^> <T, U, V>( f: @noescape (T) -> U, x: [V: T]) -> [V: U] {
+func <^> <T, U, V>(f: @noescape (T) -> U, x: [V: T]) -> [V: U] {
   return x.map(f)
 }
