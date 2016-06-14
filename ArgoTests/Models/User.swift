@@ -8,10 +8,10 @@ struct User {
 }
 
 extension User: Decodable {
-  static func decode(j: JSON) -> Decoded<User> {
-    return curry(self.init)
-      <^> j <| "id"
-      <*> j <| ["userinfo", "name"] <|> j <| "name"
-      <*> j <|? "email"
+  static func decode(_ json: JSON) -> Decoded<User> {
+    return curry(function: self.init)
+      <^> json <| "id"
+      <*> json <| ["userinfo", "name"] <|> json <| "name"
+      <*> json <|? "email"
   }
 }

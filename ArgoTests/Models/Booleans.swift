@@ -5,9 +5,9 @@ struct Booleans: Decodable {
   let bool: Bool
   let number: Bool
 
-  static func decode(j: JSON) -> Decoded<Booleans> {
-    return curry(Booleans.init)
-      <^> j <| "realBool"
-      <*> j <| "numberBool"
+  static func decode(_ json: JSON) -> Decoded<Booleans> {
+    return curry(function: Booleans.init)
+      <^> json <| "realBool"
+      <*> json <| "numberBool"
   }
 }

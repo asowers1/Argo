@@ -49,7 +49,7 @@ public func <|? <A where A: Decodable, A == A.DecodedType>(json: JSON, key: Stri
              decode operation
 */
 public func <| <A where A: Decodable, A == A.DecodedType>(json: JSON, keys: [String]) -> Decoded<A> {
-  return flatReduce(keys, initial: json, combine: decodedJSON) >>- A.decode
+  return flatReduce(sequence: keys, initial: json, combine: decodedJSON) >>- A.decode
 }
 
 /**
@@ -125,7 +125,7 @@ public func <||? <A where A: Decodable, A == A.DecodedType>(json: JSON, key: Str
              the decode operation
 */
 public func <|| <A where A: Decodable, A == A.DecodedType>(json: JSON, keys: [String]) -> Decoded<[A]> {
-  return flatReduce(keys, initial: json, combine: decodedJSON) >>- Array<A>.decode
+  return flatReduce(sequence: keys, initial: json, combine: decodedJSON) >>- Array<A>.decode
 }
 
 /**
